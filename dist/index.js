@@ -1089,14 +1089,14 @@ function prepareExistingDirectory(git, repositoryPath, repositoryUrl, clean, ref
                 remove = true;
             }
         }
-        if (remove) {
+        // if (remove) {
             // Delete the contents of the directory. Don't delete the directory itself
             // since it might be the current working directory.
             core.info(`Deleting the contents of '${repositoryPath}'`);
             for (const file of yield fs.promises.readdir(repositoryPath)) {
                 yield io.rmRF(path.join(repositoryPath, file));
             }
-        }
+        // }
     });
 }
 exports.prepareExistingDirectory = prepareExistingDirectory;
